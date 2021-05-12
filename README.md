@@ -2,7 +2,7 @@
 
 ## QuickStart
 
-`docker run -d -v/data/bsc:/root -p 30311:30311 -p 8575:8545 --name binance-smart-chain-node vlddm/binance-smart-chain-node:latest --syncmode fast --nousb --cache 4096`
+`docker run -d -v/data/bsc:/root -p 30311:30311 -p 8575:8545 --name binance-smart-chain-node vlddm/binance-smart-chain-node:latest --syncmode snap --nousb --cache 4096`
 
 Blockchain data will be stored at `/data/bsc` folder.
 
