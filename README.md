@@ -9,6 +9,7 @@ vlddm/binance-smart-chain-node:latest --syncmode snap --cache 4096
 ```
 
 Blockchain data will be stored at `/data/bsc` folder.
+
 `config.toml` will be created if not exists at `/data/bsc/.ethereum/config.toml`
 
 ## Check sync status
