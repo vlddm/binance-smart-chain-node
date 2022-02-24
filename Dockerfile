@@ -8,7 +8,7 @@ RUN apt-get update -y \
 
 ARG VERSION
 
-RUN curl --silent "https://api.github.com/repos/binance-chain/bsc/releases/tags/v${VERSION}" | jq -c '.assets[] | select( .browser_download_url | contains("mainnet.zip") or contains("geth_linux")) | .browser_download_url' | xargs -n1 curl -LOJ && \
+RUN curl -LOJ "https://github.com/bnb-chain/bsc/releases/download/v${VERSION}/mainnet.zip" && \
     unzip mainnet.zip -d / && \
     sed -i 's/^HTTPHost.*/HTTPHost = "0.0.0.0"/' /mainnet/config.toml && \
     sed -i '/^WSPort.*/a WSHost = "0.0.0.0"' /mainnet/config.toml && \
