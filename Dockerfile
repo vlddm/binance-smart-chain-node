@@ -12,10 +12,10 @@ RUN curl -LOJ "https://github.com/bnb-chain/bsc/releases/download/v${VERSION}/ma
     curl -LOJ "https://github.com/bnb-chain/bsc/releases/download/v${VERSION}/geth_linux" && \
     unzip mainnet.zip -d / && \
     mv /mainnet/* /. && rm -rf /mainnet && \
-    sed -i 's/^HTTPHost.*/HTTPHost = "0.0.0.0"/' /mainnet/config.toml && \
-    sed -i '/^WSPort.*/a WSHost = "0.0.0.0"' /mainnet/config.toml && \
-    sed -i 's/^HTTPVirtualHosts.*/HTTPVirtualHosts = ["*"]/' /mainnet/config.toml && \
-    sed -i '/Node\.LogConfig/,/^$/d' /mainnet/config.toml && \ 
+    sed -i 's/^HTTPHost.*/HTTPHost = "0.0.0.0"/' /config.toml && \
+    sed -i '/^WSPort.*/a WSHost = "0.0.0.0"' /config.toml && \
+    sed -i 's/^HTTPVirtualHosts.*/HTTPVirtualHosts = ["*"]/' /config.toml && \
+    sed -i '/Node\.LogConfig/,/^$/d' /config.toml && \ 
     mv geth_linux /usr/local/bin/bsc && \
     chmod +x /usr/local/bin/bsc
 
