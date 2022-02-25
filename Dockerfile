@@ -11,6 +11,7 @@ ARG VERSION
 RUN curl -LOJ "https://github.com/bnb-chain/bsc/releases/download/v${VERSION}/mainnet.zip" && \
     curl -LOJ "https://github.com/bnb-chain/bsc/releases/download/v${VERSION}/geth_linux" && \
     unzip mainnet.zip -d / && \
+    mv /mainnet/* /. && rm -rf /mainnet && \
     sed -i 's/^HTTPHost.*/HTTPHost = "0.0.0.0"/' /mainnet/config.toml && \
     sed -i '/^WSPort.*/a WSHost = "0.0.0.0"' /mainnet/config.toml && \
     sed -i 's/^HTTPVirtualHosts.*/HTTPVirtualHosts = ["*"]/' /mainnet/config.toml && \
