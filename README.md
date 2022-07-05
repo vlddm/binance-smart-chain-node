@@ -1,6 +1,10 @@
 # Binance Smart Chain node Docker image
 
 ## QuickStart
+Create /data folder on root
+cd /data
+mkdir bsc
+cd bsc
 
 ```
 docker run -d -v /data/bsc:/root --name binance-smart-chain-node \
@@ -27,11 +31,12 @@ docker logs -f binance-smart-chain-node
 * IPC (unix socket) at /data/bsc/.ethereum/geth.ipc
 
 Test it using [geth_linux](https://github.com/binance-chain/bsc/releases) binary: 
+chmod+x geth_linux
 
 ```
-geth_linux attach http://localhost:8545
-geth_linux attach ws://localhost:8546
-geth_linux attach /data/bsc/.ethereum/geth.ipc
+./geth_linux attach http://localhost:8545
+./geth_linux attach ws://localhost:8546
+./geth_linux attach /data/bsc/.ethereum/geth.ipc
 # Last one needs root privileges
 ```
 
